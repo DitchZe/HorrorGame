@@ -11,6 +11,7 @@ Devin - Monster maker
 Mitch - Puzzles and items maker
 
 Target platform: PC
+
 Planned publish location: GitHub pages
 
 # Scope:
