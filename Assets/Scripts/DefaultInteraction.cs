@@ -20,22 +20,23 @@ public class Interaction : MonoBehaviour
     void Update()
     {
 
-        if (Vector2.Distance(transform.position, player.position) <= targetDistance) 
-        {
-            //color change is for debugging and does not have to stay
-            sr.color = Color.yellow;
-            //this is
-            InteractionManager.Instance.SetObject(gameObject);
+    }
 
-        }
-        else 
-        {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
 
-            sr.color = Color.white;
-            InteractionManager.Instance.ClearObject(gameObject);
+        //color change is for debugging and does not have to stay
+        sr.color = Color.yellow;
+        //this is
+        InteractionManager.Instance.SetObject(gameObject);
 
+    }
 
-        }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        sr.color = Color.white;
+        InteractionManager.Instance.ClearObject(gameObject);
 
     }
 

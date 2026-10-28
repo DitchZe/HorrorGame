@@ -5,7 +5,7 @@ public class InteractionManager : MonoBehaviour
 
     public static InteractionManager Instance { get; private set; }
     
-    private GameObject currentObject;
+    public GameObject currentObject;
 
     void Awake() 
     {
