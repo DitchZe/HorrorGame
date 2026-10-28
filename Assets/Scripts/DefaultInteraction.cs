@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class Interaction : MonoBehaviour
+{
+
+    public Transform player;
+    public int targetDistance = 10;
+
+    private SpriteRenderer sr;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+        sr = GetComponent<SpriteRenderer>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Vector2.Distance(transform.position, player.position) <= targetDistance) 
+        {
+            //color change is for debugging and does not have to stay
+            sr.color = Color.yellow;
+            //this is
+            InteractionManager.Instance.SetObject(gameObject);
+
+        }
+        else 
+        {
+
+            sr.color = Color.white;
+            InteractionManager.Instance.ClearObject(gameObject);
+
+
+        }
+
+    }
+
+    void onInteraction() 
+    {
+
+        Debug.Log("It's working for now");
+    
+    }
+
+}
