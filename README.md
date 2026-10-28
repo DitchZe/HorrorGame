@@ -5,7 +5,9 @@ Slide pitch link: https://docs.google.com/presentation/d/13te4qqgPpJP5EduxM9Nqe3
 
 # Team Members:
 Zack - Level designer
+
 Devin - Monster maker
+
 Mitch - Puzzles and items maker
 
 Target platform: PC
