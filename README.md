@@ -1,3 +1,52 @@
+# Dark Enigma
+
+Dark Enigma will be a top down horror puzzle game where the player needs to complete puzzles and avoid monsters in order to escape. They will be challenged by the lack of light as well, with the ability to use different light sources to their advantage. The monsters will track the player based on sound, and various actions such as doing the puzzles will make noise.
+
+Slide pitch link: https://docs.google.com/presentation/d/13te4qqgPpJP5EduxM9Nqe3jr0v8ciP1Pc62ehVvwzX8/edit?usp=sharing
+
+# Team Members:
+
+Zack - Level designer
+
+Devin - Monster maker
+
+Mitch - Puzzles and items maker
+
+Target platform: PC
+
+Planned publish location: GitHub pages
+
+# Scope:
+
+Must:
+
+Figure out lighting system for darkness
+
+Create working puzzles
+
+Create working ai that detects noise
+
+
+Should:
+
+Have many light sources such as a camera flash, a flashlight, or a static generator light
+
+Have puzzles randomize somehow to create replayability.
+
+
+Could:
+
+Add support for 2-4 players
+
+
+# Risks:
+Figuring out the lighting system, if it is too complex we could go with a simpler version or just scrap it and rely on the monster being blind instead.
+
+Making the puzzles fun and engaging, worst case it would be just a progress meter that is filled and makes noise during interaction.
+
+Finding time to all get together as a team and also not overwriting each other's changes, if need be we will do as much as we can during the in class work time.
+
+
 # Unity 6 CI/CD Boilerplate with GitHub Actions
 
 A Unity 6000.x project that teaches you proper CI/CD on GitHub:
