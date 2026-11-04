@@ -1,3 +1,4 @@
+using UnityEditor.UI;
 using UnityEngine;
 
 public class SoundSource : MonoBehaviour
@@ -6,6 +7,7 @@ public class SoundSource : MonoBehaviour
     public float decibels;
 
     private GameObject monster;
+    private Monster monsterScript;
     public Transform monsterD;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,6 +15,7 @@ public class SoundSource : MonoBehaviour
     {
 
         monster = GameObject.FindWithTag("Monster");
+        monsterScript = monster.GetComponent<Monster>();
         monsterD = monster.transform;
 
 
@@ -27,7 +30,7 @@ public class SoundSource : MonoBehaviour
         if (distance <= decibels) 
         {
 
-            
+            monsterScript.currentState = state.SoundHeard;
 
         }
 
