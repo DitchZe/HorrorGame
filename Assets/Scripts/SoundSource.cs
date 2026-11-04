@@ -18,6 +18,21 @@ public class SoundSource : MonoBehaviour
         monsterScript = monster.GetComponent<Monster>();
         monsterD = monster.transform;
 
+        SoundSource[] allInstances = Object.FindObjectsByType<SoundSource>();
+
+        foreach (SoundSource instance in allInstances) 
+        {
+
+            if (instance.gameObject != this.gameObject) 
+            {
+
+                Destroy(instance.gameObject);
+                break;
+            
+            }
+        
+        }
+
 
     }
 
@@ -27,10 +42,16 @@ public class SoundSource : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, monsterD.position);
 
-        if (distance <= decibels) 
+        if (distance <= decibels)
         {
 
             monsterScript.currentState = state.SoundHeard;
+
+        }
+        else 
+        {
+
+            Destroy(gameObject);
 
         }
 

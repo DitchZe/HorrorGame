@@ -46,11 +46,44 @@ public class Monster : MonoBehaviour
 
             case state.SoundHeard:
 
-                transform.position = Vector3.MoveTowards(transform.position, targetP.position, 0.01f);
+                target = GameObject.FindWithTag("SoundSource");
+                targetP = target.transform;
+
+                if (target != null)
+                {
+
+                    transform.position = Vector3.MoveTowards(transform.position, targetP.position, 0.01f);
+
+                }
+                else 
+                {
+
+                    currentState = state.Default;
+
+                }
+
+
+
 
                 break;
 
         }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("SoundSource")) 
+        {
+
+            Destroy(target);
+            currentState = state.Default;
+
+        }
+
+        Debug.Log("Collide");
+
+    }
+
 }
