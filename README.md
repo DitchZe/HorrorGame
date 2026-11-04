@@ -46,6 +46,8 @@ Making the puzzles fun and engaging, worst case it would be just a progress mete
 
 Finding time to all get together as a team and also not overwriting each other's changes, if need be we will do as much as we can during the in class work time.
 
+Getting the monster to quickly and accurately chase down players when players make loud noises that would attract the monster to their location by completing tasks or messing up something causing there to be a sound cue.   
+
 
 # Unity 6 CI/CD Boilerplate with GitHub Actions
 
