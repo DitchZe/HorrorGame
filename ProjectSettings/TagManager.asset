@@ -8,6 +8,7 @@ TagManager:
   - Trap
   - Ground
   - Monster
+  - SoundSource
   layers:
   - Default
   - TransparentFX
