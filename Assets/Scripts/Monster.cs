@@ -19,6 +19,8 @@ public class Monster : MonoBehaviour
     public GameObject target;
     private Transform targetP;
 
+    public float speed = 1f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,7 +54,7 @@ public class Monster : MonoBehaviour
                 if (target != null)
                 {
 
-                    transform.position = Vector3.MoveTowards(transform.position, targetP.position, 0.01f);
+                    transform.position = Vector3.MoveTowards(transform.position, targetP.position, speed);
 
                 }
                 else 
