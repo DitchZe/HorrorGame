@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class DefaultInteraction1 : MonoBehaviour
 {
 
     public Transform player;
@@ -43,7 +43,7 @@ public class Interaction : MonoBehaviour
     void onInteraction() 
     {
 
-        Debug.Log("It's working for now");
+        Debug.Log("Mitch is Sick");
     
     }
 

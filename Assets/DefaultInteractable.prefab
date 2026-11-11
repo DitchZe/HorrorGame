@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2576677696738561989}
   - component: {fileID: 4486800680366004715}
-  - component: {fileID: 7590684928937891185}
   - component: {fileID: 6562311088407770274}
   m_Layer: 0
   m_Name: DefaultInteractable
@@ -94,20 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &7590684928937891185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6331761460484859101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eaad86ee6000154f8d901c4a5a92a38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  player: {fileID: 0}
-  targetDistance: 1
 --- !u!60 &6562311088407770274
 PolygonCollider2D:
   m_ObjectHideFlags: 0
