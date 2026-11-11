@@ -491,10 +491,9 @@ GameObject:
   - component: {fileID: 2136457965}
   - component: {fileID: 2136457964}
   - component: {fileID: 2136457966}
-  - component: {fileID: 2136457967}
   m_Layer: 0
   m_Name: Sound Source
-  m_TagString: SoundSource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,6 +567,7 @@ Transform:
   m_GameObject: {fileID: 2136457963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: 0, z: 4}
   m_LocalPosition: {x: 15.04, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
