@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
 
     float speed = 5f;
+    bool sneaking = false;
 
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -24,6 +25,16 @@ public class Player : MonoBehaviour
         movementInput.y = Input.GetAxis("Vertical");
 
         rb.linearVelocity = movementInput.normalized * speed;
+
+
+        if (Input.GetKey(KeyCode.LeftControl)) 
+        {
+
+            Debug.Log("Key pressed");
+            sneaking = true;
+            speed /= 2;
+        
+        }
 
     }
 }
