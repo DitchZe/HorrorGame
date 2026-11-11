@@ -90,7 +90,13 @@ public class Monster : MonoBehaviour
 
         }
 
-        
+        if (other.CompareTag("Wall") && currentState == state.Default)
+        {
+
+            //Vector2 wallNormal = other.contacts[0].normal
+
+        }
+
 
     }
 
@@ -107,18 +113,6 @@ public class Monster : MonoBehaviour
 
         }
 
-        if (other.CompareTag("Wall") && currentState == state.Default)
-        {
-
-            newDirection();
-
-        }
-    }
-
-    private void newDirection()
-    {
-        float angle = Random.Range(0f, Mathf.PI * 2f);
-        randomDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
     }
 
 }

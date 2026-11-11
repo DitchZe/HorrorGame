@@ -4,6 +4,7 @@ public class SoundTrap : MonoBehaviour
 {
 
     private GameObject player;
+    private Player playerScript;
 
     public GameObject SoundSource;
 
@@ -12,6 +13,7 @@ public class SoundTrap : MonoBehaviour
     {
        
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<Player>();
 
     }
 
@@ -23,9 +25,9 @@ public class SoundTrap : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject == player)
+        if (other.gameObject == player && playerScript.sneaking == false)
         {
 
             Debug.Log("Player entered sound trap");
