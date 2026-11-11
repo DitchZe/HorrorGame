@@ -13,8 +13,6 @@ public class Monster : MonoBehaviour
 {
 
     public state currentState;
-
-    private NavMeshAgent agent;
     
     public GameObject target;
     private Transform targetP;
@@ -26,7 +24,6 @@ public class Monster : MonoBehaviour
     {
 
         currentState = state.Default;
-        //agent = GetComponent<NavMeshAgent>();
 
         target = GameObject.FindWithTag("SoundSource");
         targetP = target.transform;
