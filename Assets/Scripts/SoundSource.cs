@@ -15,8 +15,19 @@ public class SoundSource : MonoBehaviour
     {
 
         monster = GameObject.FindWithTag("Monster");
+
+        if (monster == null)
+        {
+
+            Debug.Log("Monster not found");
+            Destroy(gameObject);
+
+        }
+
         monsterScript = monster.GetComponent<Monster>();
         monsterD = monster.transform;
+
+        
 
         SoundSource[] allInstances = Object.FindObjectsByType<SoundSource>();
 
@@ -42,7 +53,7 @@ public class SoundSource : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, monsterD.position);
 
-        if (distance <= decibels)
+        if (distance <= decibels && monsterScript.currentState == state.Default)
         {
 
             monsterScript.currentState = state.SoundHeard;
