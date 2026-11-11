@@ -3,8 +3,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    float speed = 5f;
-    bool sneaking = false;
+    public float speed = 5f;
+    public float defSpeed = 0;
+    public bool sneaking = false;
 
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
+        defSpeed = speed;
 
     }
 
@@ -21,19 +23,25 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        movementInput.x = Input.GetAxis("Horizontal");
+        movementInput.x = -Input.GetAxis("Horizontal");
         movementInput.y = Input.GetAxis("Vertical");
 
         rb.linearVelocity = movementInput.normalized * speed;
 
 
-        if (Input.GetKey(KeyCode.LeftControl)) 
+        if (Input.GetKey(KeyCode.LeftControl))
         {
 
-            Debug.Log("Key pressed");
             sneaking = true;
-            speed /= 2;
-        
+            speed = defSpeed / 2;
+
+        }
+        else 
+        {
+
+            speed = defSpeed;
+            sneaking = false;
+
         }
 
     }
