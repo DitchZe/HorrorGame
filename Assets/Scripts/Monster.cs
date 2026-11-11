@@ -14,22 +14,25 @@ public class Monster : MonoBehaviour
 
     public state currentState;
 
-    private NavMeshAgent agent;
-    
+    private Rigidbody2D rb;
+
     public GameObject target;
     private Transform targetP;
 
-    public float speed = 1f;
+    public float speed = 5f;
+    public float wanderSpeed = 2f;
+    private bool charging = false;
+    private Vector2 randomDirection;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         currentState = state.Default;
-        //agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
 
-        target = GameObject.FindWithTag("SoundSource");
-        targetP = target.transform;
+        float angle = Random.Range(0f, Mathf.PI * 2f);
+        randomDirection = new Vector2(Mathf.Cos(angle),Mathf.Sin(angle));
 
     }
 
@@ -42,7 +45,7 @@ public class Monster : MonoBehaviour
 
             case state.Default:
 
-
+                rb.linearVelocity = randomDirection * wanderSpeed;
 
                 break;
 
@@ -51,20 +54,23 @@ public class Monster : MonoBehaviour
                 target = GameObject.FindWithTag("SoundSource");
                 targetP = target.transform;
 
-                if (target != null)
+                
+
+                if (charging)
                 {
 
-                    transform.position = Vector3.MoveTowards(transform.position, targetP.position, speed);
+                    rb.linearVelocity = (targetP.position - transform.position).normalized * speed;
 
                 }
                 else 
                 {
-
+                
+                    rb.linearVelocity = Vector2.zero;
                     currentState = state.Default;
 
                 }
 
-
+                charging = true;
 
 
                 break;
@@ -84,8 +90,35 @@ public class Monster : MonoBehaviour
 
         }
 
-        Debug.Log("Collide");
+        
 
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Wall") && currentState == state.SoundHeard)
+        {
+
+            Debug.Log("Collide with wall");
+            rb.linearVelocity = Vector2.zero;
+            charging = false;
+            currentState = state.Default;
+
+        }
+
+        if (other.CompareTag("Wall") && currentState == state.Default)
+        {
+
+            newDirection();
+
+        }
+    }
+
+    private void newDirection()
+    {
+        float angle = Random.Range(0f, Mathf.PI * 2f);
+        randomDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
     }
 
 }
