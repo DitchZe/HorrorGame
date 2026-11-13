@@ -54,23 +54,9 @@ public class Monster : MonoBehaviour
                 target = GameObject.FindWithTag("SoundSource");
                 targetP = target.transform;
 
-                
 
-                if (charging)
-                {
+                rb.linearVelocity = (targetP.position - transform.position).normalized * speed;
 
-                    rb.linearVelocity = (targetP.position - transform.position).normalized * speed;
-
-                }
-                else 
-                {
-                
-                    rb.linearVelocity = Vector2.zero;
-                    currentState = state.Default;
-
-                }
-
-                charging = true;
 
 
                 break;
@@ -79,10 +65,10 @@ public class Monster : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (other.CompareTag("SoundSource")) 
+        if (collision.CompareTag("SoundSource")) 
         {
 
             Destroy(target);
@@ -90,25 +76,25 @@ public class Monster : MonoBehaviour
 
         }
 
-        if (other.CompareTag("Wall") && currentState == state.Default)
-        {
-
-            //Vector2 wallNormal = other.contacts[0].normal
-
-        }
-
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (other.CompareTag("Wall") && currentState == state.SoundHeard)
+
+        if(currentState == state.Default)
+        {
+            Vector2 wallNormal = collision.contacts[0].normal;
+
+            randomDirection = Vector2.Reflect(randomDirection, wallNormal).normalized;
+        }
+
+        if (currentState == state.SoundHeard)
         {
 
-            Debug.Log("Collide with wall");
-            rb.linearVelocity = Vector2.zero;
-            charging = false;
+            Vector2 wallNormal = collision.contacts[0].normal;
+
+            randomDirection = Vector2.Reflect(randomDirection, wallNormal).normalized;
             currentState = state.Default;
 
         }
